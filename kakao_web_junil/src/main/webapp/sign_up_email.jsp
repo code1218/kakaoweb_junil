@@ -42,7 +42,7 @@
                         	<span class="msg2"><%=id %>는 이미 존재하는 아이디입니다.</span>
                         </div>
                         <div class="confirm_btn">
-                            <button type="submit" class="btn_g">다음</button>
+                            <button type="button" class="btn_g">다음</button>
                         </div>
                     </form>
                 </div>
@@ -50,6 +50,19 @@
             <jsp:include page="sign_up_include/sign_up_footer.jsp"></jsp:include>
         </div>
     </div>
+    <script type="text/javascript">
+    	const btn_g = document.querySelector('.btn_g');
+    	btn_g.onclick = () => {
+    		const item_ip = document.querySelector('.item_ip');
+        	if(item_ip.value.length == 0){
+        		const msg1 = document.querySelector('.msg1');
+        		msg1.style.display = 'block';
+        	} else {
+        		const form = document.querySelector('form');
+        		form.submit();
+        	}
+    	}
+    </script>
     <script type="text/javascript" src="js/sign_up.js"></script>
 </body>
 

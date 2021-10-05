@@ -30,6 +30,7 @@
         <div class="inner_container">
             <jsp:include page="sign_up_include/sign_up_header.jsp"></jsp:include>
             <main>
+            	<input type="hidden" id="id" value="<%=id %>">
                 <div class="warp_form">
                     <form action="">
                         <div class="navigation_wrap">
@@ -40,17 +41,20 @@
                         <div class="item_tf">
                             <input type="password" class="item_ip" placeholder="비밀번호 입력">
                         </div>
-                        <div class="confirm_btn">
-                            <button class="btn_g" onclick="location.href='sign_up_repassword.html'; return false;">다음</button>
+                        <div class="item_msg">
+                        	<span class="msg1">필수 항목입니다.</span>
+                        	<span class="msg2"></span>
                         </div>
-                        
-
+                        <div class="confirm_btn">
+                            <button type="button" class="btn_g">다음</button>
+                        </div>
                     </form>
                 </div>
             </main>
             <jsp:include page="sign_up_include/sign_up_footer.jsp"></jsp:include>
         </div>
     </div>
+    <script type="text/javascript" src="js/sign_up_password.js"></script>
 </body>
 
 </html>

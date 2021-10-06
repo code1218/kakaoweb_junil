@@ -3,6 +3,12 @@
 <!DOCTYPE html>
 <html lang="ko">
 
+<%
+	String id = request.getParameter("id");
+	String password = request.getParameter("password");
+	String repassword = request.getParameter("repassword");
+%>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">

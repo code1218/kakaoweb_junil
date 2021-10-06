@@ -49,22 +49,7 @@
             <jsp:include page="sign_up_include/sign_up_footer.jsp"></jsp:include>
         </div>
     </div>
-    <script type="text/javascript">
-    	const btn_g = document.querySelector('.btn_g');
-    	btn_g.onclick = () => {
-    		const item_ip = document.querySelector('.item_ip');
-        	if(item_ip.value.length == 0){
-        		const msg1 = document.querySelector('.msg1');
-        		const msg2 = document.querySelector('.msg2');
-        		msg1.style.display = 'block';
-        		msg2.style.display = 'none';
-        	} else {
-        		const form = document.querySelector('form');
-        		form.submit();
-        	}
-    	}
-    </script>
-    <script type="text/javascript" src="js/sign_up.js"></script>
+    <script type="text/javascript" src="js/sign_up_email.js"></script>
 </body>
 
 </html>

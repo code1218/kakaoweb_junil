@@ -86,6 +86,10 @@ progress {
 	display: none;
 }
 
+.item_msg .msg3 {
+	display: none;
+}
+
 .util_tf {
     position: absolute;
     height: 100%;

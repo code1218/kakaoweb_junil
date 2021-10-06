@@ -23,7 +23,6 @@
             <jsp:include page="sign_up_include/sign_up_header.jsp"></jsp:include>
             <main>
                 <div class="warp_form">
-                	<input type="hidden" id="id" value="<%=id %>">
                 	<input type="hidden" id="flag" value="<%=flag %>">
                     <form action="sign_up_password.jsp" method="post">
                         <div class="navigation_wrap">
@@ -39,7 +38,7 @@
                         </div>
                         <div class="item_msg">
                         	<span class="msg1">필수 항목입니다.</span>
-                        	<span class="msg2"><%=id %>는 이미 존재하는 아이디입니다.</span>
+                        	<span class="msg2"><%=id %>(은)는 이미 존재하는 아이디입니다.</span>
                         </div>
                         <div class="confirm_btn">
                             <button type="button" class="btn_g">다음</button>
@@ -56,7 +55,9 @@
     		const item_ip = document.querySelector('.item_ip');
         	if(item_ip.value.length == 0){
         		const msg1 = document.querySelector('.msg1');
+        		const msg2 = document.querySelector('.msg2');
         		msg1.style.display = 'block';
+        		msg2.style.display = 'none';
         	} else {
         		const form = document.querySelector('form');
         		form.submit();

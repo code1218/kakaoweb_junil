@@ -1,5 +1,5 @@
-<%@page import="com.kakao.web.dao.SignUpDaoImpl"%>
-<%@page import="com.kakao.web.dao.SignUpDao"%>
+<%@ page import="com.kakao.web.dao.SignUpDaoImpl"%>
+<%@ page import="com.kakao.web.dao.SignUpDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -30,16 +30,16 @@
         <div class="inner_container">
             <jsp:include page="sign_up_include/sign_up_header.jsp"></jsp:include>
             <main>
-            	<input type="hidden" id="id" value="<%=id %>">
                 <div class="warp_form">
-                    <form action="">
+                    <form action="sign_up_repassword.jsp" method="post">
+                    	<input type="hidden" id="id" name="id" value="<%=id %>">
                         <div class="navigation_wrap">
                             <progress class="bar_navigation" value="40" max="100"></progress>
                         </div>
                         <h2>카카오계정 가입을 위해<br>
                             비밀번호를 입력해 주세요.</h2>
                         <div class="item_tf">
-                            <input type="password" class="item_ip" placeholder="비밀번호 입력">
+                            <input type="password" class="item_ip" name="password" placeholder="비밀번호 입력">
                         </div>
                         <div class="item_msg">
                         	<span class="msg1">필수 항목입니다.</span>

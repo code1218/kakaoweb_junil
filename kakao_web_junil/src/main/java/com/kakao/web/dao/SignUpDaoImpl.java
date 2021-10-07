@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 import com.kakao.web.db.DBConnectionMgr;
+import com.kakao.web.dto.UserDto;
 
 public class SignUpDaoImpl implements SignUpDao {
 	
@@ -69,4 +70,41 @@ public class SignUpDaoImpl implements SignUpDao {
 		return flag;
 	}
 	
+	@Override
+	public boolean signUp(UserDto userDto) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String sql = null;
+		boolean flag = false;
+		
+		try {
+			con = pool.getConnection();
+			sql = "insert into user_mst values(?, ?, ?, ?, now(), now())";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, userDto.getUser_email());
+			pstmt.setString(2, userDto.getUser_password());
+			pstmt.setString(3, userDto.getUser_name());
+			pstmt.setString(4, userDto.getUser_phone());
+			
+			pstmt.executeUpdate();
+			flag = true;
+			
+			return flag;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con, pstmt);
+		}
+		
+		return flag;
+	}
 }
+
+
+
+
+
+
+
+

@@ -35,14 +35,18 @@ if(flag.value == 0){
 item_ip.onkeypress = () => {
 	if(window.event.keyCode == 13){
 		window.event.preventDefault();
-		submit_flag.value = 1;
-		onSubmit();
+		if(flag.value == 1){
+			submit_flag.value = 1;
+			onSubmit();
+		}
 	}
 }
 
 btn_g.onclick = () => {
-	submit_flag.value = 1;
-	onSubmit();
+	if(flag.value == 1){
+		submit_flag.value = 1;
+		onSubmit();
+	}
 }
 
 button_round.onclick = () => {

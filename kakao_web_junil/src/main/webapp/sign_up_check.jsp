@@ -1,3 +1,4 @@
+<%@page import="com.kakao.web.dto.UserDto"%>
 <%@page import="com.kakao.web.dao.SignUpDaoImpl"%>
 <%@page import="com.kakao.web.dao.SignUpDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -9,12 +10,25 @@
 	String password = request.getParameter("password");
 	String name = request.getParameter("name");
 	String phone = request.getParameter("phone");
+	
+	SignUpDao signUpDao = new SignUpDaoImpl();
+	
 	if(submit_flag.equals("1")){
 		//가입요청
+		UserDto userDto = new UserDto();
+		userDto.setUser_email(id);
+		userDto.setUser_password(password);
+		userDto.setUser_name(name);
+		userDto.setUser_phone(phone);
+		
+		boolean flag = signUpDao.signUp(userDto);
+		
+		if(flag == true){
+			response.sendRedirect("sign_in.jsp");
+		}
 		
 	}else if(submit_flag.equals("2")) {
 		//전화번호 인증요청
-		SignUpDao signUpDao = new SignUpDaoImpl();
 		int flag =  signUpDao.phoneNumberCheck(phone, name);
 %>
 		<jsp:forward page="sign_up_phone.jsp">

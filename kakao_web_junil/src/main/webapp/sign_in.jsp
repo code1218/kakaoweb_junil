@@ -2,6 +2,10 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
+<%
+	String login_id = request.getParameter("login_id");
+	String login_password = request.getParameter("login_password");
+%>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,7 +30,7 @@
                 </div>
                 <div class="warp_form">
                     <h1 class="brand_logo">kakao</h1>
-                    <form action="">
+                    <form action="sign_in.jsp" method="post">
                         <div class="item_tf">
                             <input type="email" class="item_ip" name="login_id" placeholder="카카오메일 아이디, 이메일, 전화번호">
                             <div class="util_tf">                          
@@ -51,7 +55,7 @@
                             <label for="chk" class="chk_lab">로그인 상태 유지</label>
                         </div>
                         <div class="warp_btn">
-                            <button class="item_btn btn_login">로그인</button>
+                            <button type="button" class="item_btn btn_login" >로그인</button>
                             <div class="hr-sect">
                                 <span>또는</span>
                             </div>

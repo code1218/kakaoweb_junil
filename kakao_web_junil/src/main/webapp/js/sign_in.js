@@ -43,6 +43,9 @@ function onSubmit(){
 		msg2.style.display = "none";
 		msg3.style.display = "block";
 		msg4.style.display = "none";
+	} else {
+		const form = document.querySelector('form');
+		form.submit();
 	}
 }
 

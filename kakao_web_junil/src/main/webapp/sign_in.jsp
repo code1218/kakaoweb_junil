@@ -6,10 +6,21 @@
 <html lang="ko">
 <%
 	String submit_flag = request.getParameter("submit_flag") == null ? "0" : request.getParameter("submit_flag");
-
 	String login_id = request.getParameter("login_id");
 	String login_password = request.getParameter("login_password");
-	SignInDao signInDao = new SignInDaoImpl();
+	int flag = 3;
+	
+	if(submit_flag.equals("1")){
+		SignInDao signInDao = new SignInDaoImpl();
+		
+		flag = signInDao.signIn(login_id, login_password);
+		if(flag == 2){
+%>
+			<jsp:forward page="index.jsp"></jsp:forward>
+<%
+		}
+	}
+	
 	
 %>
 <head>
@@ -38,6 +49,9 @@
                     <h1 class="brand_logo">kakao</h1>
                     <form action="sign_in.jsp" method="post">
                     	<input type="hidden" id="submit_flag" name="submit_flag" value="<%=submit_flag %>">
+                    	<input type="hidden" id="flag" value="<%=flag %>">
+                    	<input type="hidden" id="return_id" value="<%=login_id %>">
+                    	<input type="hidden" id="return_password" value="<%=login_password %>">
                         <div class="item_tf">
                             <input type="email" class="item_ip" name="login_id" placeholder="카카오메일 아이디, 이메일, 전화번호">
                             <div class="util_tf">                          
@@ -49,14 +63,14 @@
                             카카오메일이 있다면 메일 아이디만 입력해 보세요.
                         </p>
                         <div class="item_msg">
-                        	<span class="msg1">필수 항목입니다.</span>
+                        	<span class="msg1">아이디를 입력해주세요.</span>
                         	<span class="msg2">존재하지 않는 아이디 입니다.</span>
                         </div>
                         <div class="item_tf">
                             <input type="password" class="item_ip" name="login_password" placeholder="비밀번호">
                         </div>
                         <div class="item_msg">
-                        	<span class="msg3">필수 항목입니다.</span>
+                        	<span class="msg3">비밀번호를 입력해주세요.</span>
                         	<span class="msg4">비밀번호가 일치하지 않습니다.</span>
                         </div>
                         <div class="item_chk">

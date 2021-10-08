@@ -24,15 +24,41 @@ item_ip[0].onblur = () => {
 
 const btn_login = document.querySelector('.btn_login');
 const submit_flag = document.querySelector('#submit_flag');
+const msg1 = document.querySelector('.msg1');
+const msg2 = document.querySelector('.msg2');
+const msg3 = document.querySelector('.msg3');
+const msg4 = document.querySelector('.msg4');
+const flag = document.querySelector('#flag');
+const return_id = document.querySelector('#return_id');
+const return_password = document.querySelector('#return_password');
+
+if(flag.value == 0){
+	const util_tf = document.querySelector('.util_tf');
+    util_tf.style.display = 'block';
+	msg1.style.display = "none";
+	msg2.style.display = "block";
+	msg3.style.display = "none";
+	msg4.style.display = "none";
+	item_ip[0].value = return_id.value;
+	item_ip[0].focus();
+}else if(flag.value == 1){
+	const util_tf = document.querySelector('.util_tf');
+    util_tf.style.display = 'block';
+	msg1.style.display = "none";
+	msg2.style.display = "none";
+	msg3.style.display = "none";
+	msg4.style.display = "block";
+	item_ip[0].value = return_id.value;
+	item_ip[1].value = return_password.value;
+	item_ip[1].focus();
+}
+
 btn_login.onclick = () => {
 	submit_flag.value = '1';
+	onSubmit();
 }
 
 function onSubmit(){
-	const msg1 = document.querySelector('.msg1');
-	const msg2 = document.querySelector('.msg2');
-	const msg3 = document.querySelector('.msg3');
-	const msg4 = document.querySelector('.msg4');
 	if(item_ip[0].value.length == 0){
 		msg1.style.display = "block";
 		msg2.style.display = "none";

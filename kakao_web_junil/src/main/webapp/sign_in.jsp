@@ -28,7 +28,7 @@
                     <h1 class="brand_logo">kakao</h1>
                     <form action="">
                         <div class="item_tf">
-                            <input type="email" class="item_ip" name="" id="" placeholder="카카오메일 아이디, 이메일, 전화번호">
+                            <input type="email" class="item_ip" name="login_id" placeholder="카카오메일 아이디, 이메일, 전화번호">
                             <div class="util_tf">                          
                                 <span class="info_mail">@kakao.com</span>                      
                             </div>
@@ -38,7 +38,7 @@
                             카카오메일이 있다면 메일 아이디만 입력해 보세요.
                         </p>
                         <div class="item_tf">
-                            <input type="password" class="item_ip"name="" id="" placeholder="비밀번호">
+                            <input type="password" class="item_ip" name="login_password" placeholder="비밀번호">
                         </div>
                         <div class="item_chk">
                             <input type="checkbox" class="item_cb"name="" id="chk">

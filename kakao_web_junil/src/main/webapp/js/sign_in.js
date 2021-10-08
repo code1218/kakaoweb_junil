@@ -21,3 +21,38 @@ item_ip[0].onblur = () => {
         util_tf.style.display = 'none';
     }
 }
+
+const btn_login = document.querySelector('.btn_login');
+const submit_flag = document.querySelector('#submit_flag');
+btn_login.onclick = () => {
+	submit_flag.value = '1';
+}
+
+function onSubmit(){
+	const msg1 = document.querySelector('.msg1');
+	const msg2 = document.querySelector('.msg2');
+	const msg3 = document.querySelector('.msg3');
+	const msg4 = document.querySelector('.msg4');
+	if(item_ip[0].value.length == 0){
+		msg1.style.display = "block";
+		msg2.style.display = "none";
+		msg3.style.display = "none";
+		msg4.style.display = "none";
+	} else if(item_ip[1].value.length == 0){
+		msg1.style.display = "none";
+		msg2.style.display = "none";
+		msg3.style.display = "block";
+		msg4.style.display = "none";
+	}
+}
+
+
+
+
+
+
+
+
+
+
+

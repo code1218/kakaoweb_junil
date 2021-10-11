@@ -7,13 +7,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.kakao.web.sign.dao.SignUpDao;
-import com.kakao.web.sign.dao.SignUpDaoImpl;
+import com.kakao.web.sign.service.SignUpService;
+import com.kakao.web.sign.service.SignUpServiceImpl;
 
 @WebServlet("/signUp")
 public class SignUp extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private SignUpDao signUpDao = new SignUpDaoImpl();
+	private SignUpService signUpService;
+	
+	public SignUp() {
+		signUpService = new SignUpServiceImpl();
+	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
@@ -32,18 +36,33 @@ public class SignUp extends HttpServlet {
 		if(submitStatus.equals("email")) {
 			String id = request.getParameter("id");
 			
-			int flag = signUpDao.idCheck(id+"@kakao.com");
-			
-			System.out.println(flag);
+			int flag = signUpService.idCheck(id);
+			request.setAttribute("id", id);
 			
 			if(flag == 1) {
-				request.setAttribute("id", id);
 				request.setAttribute("flag", flag);
 				
 				request.getRequestDispatcher("WEB-INF/views/sign_up_email.jsp").forward(request, response);
 			}else {
 				request.getRequestDispatcher("WEB-INF/views/sign_up_password.jsp").forward(request, response);
 			}
+		}else if(submitStatus.equals("password")) {
+			request.getRequestDispatcher("WEB-INF/views/sign_up_repassword.jsp").forward(request, response);
+			
+		}else if(submitStatus.equals("repassword")) {
+			request.getRequestDispatcher("WEB-INF/views/sign_up_name.jsp").forward(request, response);
+			
+		}else if(submitStatus.equals("name")) {
+			request.getRequestDispatcher("WEB-INF/views/sign_up_phone.jsp").forward(request, response);
+			
+		}else if(submitStatus.equals("phone")) {
+			String submitFlag = request.getParameter("submit_flag");
+			
+			if(submitFlag.equals("1")) {
+				
+			}
+		}else {
+			System.out.println("접속오류!(잘못된 접근)");
 		}
 	
 	}

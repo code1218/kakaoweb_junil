@@ -1,4 +1,4 @@
-package com.kakao.web.dao;
+package com.kakao.web.sign.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

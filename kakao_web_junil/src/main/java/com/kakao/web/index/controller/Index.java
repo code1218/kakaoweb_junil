@@ -1,4 +1,4 @@
-package com.kakao.web.controller;
+package com.kakao.web.index.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Index
  */
-@WebServlet("/index")
+@WebServlet("/hi")
 public class Index extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

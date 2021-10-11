@@ -1,6 +1,6 @@
-package com.kakao.web.dao;
+package com.kakao.web.sign.dao;
 
-import com.kakao.web.dto.UserDto;
+import com.kakao.web.sign.dto.UserDto;
 
 public interface SignUpDao {
 	public int idCheck(String id);

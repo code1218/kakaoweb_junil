@@ -20,8 +20,6 @@
 <%
 		}
 	}
-	
-	
 %>
 <head>
     <meta charset="UTF-8">
@@ -92,7 +90,7 @@
                         </div>
                     </form>
                     <div class="info_user">
-                        <a href="sign_up_email.jsp">회원가입</a>
+                        <a href="signUp">회원가입</a>
                         <div>
                             <a href="">카카오계정</a>
                             <label> | </label>

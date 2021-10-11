@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.kakao.web.sign.model.dto.UserDto;
 import com.kakao.web.sign.service.SignUpService;
 import com.kakao.web.sign.service.SignUpServiceImpl;
 
@@ -48,18 +49,37 @@ public class SignUp extends HttpServlet {
 			}
 		}else if(submitStatus.equals("password")) {
 			request.getRequestDispatcher("WEB-INF/views/sign_up_repassword.jsp").forward(request, response);
-			
 		}else if(submitStatus.equals("repassword")) {
 			request.getRequestDispatcher("WEB-INF/views/sign_up_name.jsp").forward(request, response);
-			
 		}else if(submitStatus.equals("name")) {
 			request.getRequestDispatcher("WEB-INF/views/sign_up_phone.jsp").forward(request, response);
-			
 		}else if(submitStatus.equals("phone")) {
 			String submitFlag = request.getParameter("submit_flag");
-			
 			if(submitFlag.equals("1")) {
+				//가입요청
+				UserDto userDto = new UserDto();
+				userDto.setUser_email(request.getParameter("id"));
+				userDto.setUser_password(request.getParameter("password"));
+				userDto.setUser_name(request.getParameter("name"));
+				userDto.setUser_phone(request.getParameter("phone"));
 				
+				boolean signUpFlag = signUpService.signUp(userDto);
+				if(signUpFlag == true) {
+					response.sendRedirect("signIn");
+				}else {
+					request.getRequestDispatcher("WEB-INF/views/sign_up_phone.jsp").forward(request, response);
+				}
+				
+			}else if(submitFlag.equals("2")) {
+				//전화번호 인증요청
+				String phone = request.getParameter("phone");
+				String name = request.getParameter("name");
+				if(phone != null && name != null) {
+					int flag = signUpService.phoneNumberCheck(phone, name);
+					request.setAttribute("flag", flag);
+					
+					request.getRequestDispatcher("WEB-INF/views/sign_up_phone.jsp").forward(request, response);
+				}
 			}
 		}else {
 			System.out.println("접속오류!(잘못된 접근)");

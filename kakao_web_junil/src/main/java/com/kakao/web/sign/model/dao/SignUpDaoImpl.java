@@ -79,6 +79,7 @@ public class SignUpDaoImpl implements SignUpDao {
 		
 		try {
 			con = pool.getConnection();
+			System.out.println(userDto);
 			sql = "insert into user_mst values(?, ?, ?, ?, now(), now())";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, userDto.getUser_email());

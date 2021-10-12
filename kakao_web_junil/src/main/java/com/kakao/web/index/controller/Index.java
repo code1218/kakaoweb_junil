@@ -23,10 +23,6 @@ public class Index extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		request.getRequestDispatcher("WEB-INF/views/index.jsp").forward(request, response);
-		/*
-		 * request.getRequestDispatcher("index.jsp").include(request, response);
-		 * response.sendRedirect("index.jsp");
-		 */
 	}
 
 }

@@ -46,7 +46,6 @@ public class SignUp extends HttpServlet {
 				request.getRequestDispatcher("WEB-INF/views/sign_up_email.jsp").forward(request, response);
 			}else {
 				//비밀번호
-				request.setAttribute("id", request.getParameter("id"));
 				request.getRequestDispatcher("WEB-INF/views/sign_up_password.jsp").forward(request, response);
 			}
 		}else if(submitStatus.equals("password")) {

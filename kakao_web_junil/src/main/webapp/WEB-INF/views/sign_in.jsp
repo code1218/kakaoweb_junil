@@ -54,7 +54,7 @@
                         	<span class="msg4">비밀번호가 일치하지 않습니다.</span>
                         </div>
                         <div class="item_chk">
-                            <input type="checkbox" class="item_cb"name="" id="chk">
+                            <input type="checkbox" class="item_cb" name="id_chk_status" id="chk">
                             <label class="chk_on" for="chk">
                                 <i class="far fa-check-circle"></i>
                             </label>

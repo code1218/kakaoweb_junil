@@ -20,10 +20,9 @@
         </ul>
 <%
 		} else{
-			User login_user = (User)session.getAttribute("login_user");
 %>
 		<ul class="nav_user">
-            <a href="#"><li><i class="fas fa-user-circle"></i> <%=login_user.getId()+"@kakao.com" %></li></a>
+            <a href="#"><li><i class="fas fa-user-circle"></i> ${login_user.id }<span>@kakao.com</span></li></a>
             <a href="logout"><li><i class="fas fa-sign-out-alt"></i></li></a>
         </ul>
 <%			

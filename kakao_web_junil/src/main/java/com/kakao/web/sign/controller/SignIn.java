@@ -41,8 +41,6 @@ public class SignIn extends HttpServlet {
 		String login_password = request.getParameter("login_password");
 		String id_chk_status = request.getParameter("id_chk_status") == null ? "off" : "on";
 		
-		System.out.println(id_chk_status);
-		
 		int flag = signInService.signIn(login_id, login_password);
 		if(flag == 2) {
 			HttpSession session = request.getSession();

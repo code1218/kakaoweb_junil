@@ -1,8 +1,8 @@
 package com.kakao.web.notice.model.dto;
 
-public class Notice {
-	private int index;
-	private int notice_num;
+public class NoticeDto {
+	private int index; //순번
+	private int notice_code; //공지사항 키값
 	private String notice_title;
 	private String notice_writer;
 	private String notice_date;
@@ -14,11 +14,11 @@ public class Notice {
 	public void setIndex(int index) {
 		this.index = index;
 	}
-	public int getNotice_num() {
-		return notice_num;
+	public int getNotice_code() {
+		return notice_code;
 	}
-	public void setNotice_num(int notice_num) {
-		this.notice_num = notice_num;
+	public void setNotice_code(int notice_code) {
+		this.notice_code = notice_code;
 	}
 	public String getNotice_title() {
 		return notice_title;
@@ -47,10 +47,11 @@ public class Notice {
 	
 	@Override
 	public String toString() {
-		return "Notice [index=" + index + ", notice_num=" + notice_num + ", notice_title=" + notice_title
+		return "Notice [index=" + index + ", notice_code=" + notice_code + ", notice_title=" + notice_title
 				+ ", notice_writer=" + notice_writer + ", notice_date=" + notice_date + ", notice_count=" + notice_count
 				+ "]";
 	}
+	
 	
 	
 }

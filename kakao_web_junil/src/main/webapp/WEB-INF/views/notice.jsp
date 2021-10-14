@@ -43,11 +43,13 @@
             </div>
             <div class="notice_footer">
 				<ul>
-					<a href="notice?notice-page=1"><li>1</li></a>
-					<a href="notice?notice-page=2"><li>2</li></a>
-					<a href="notice?notice-page=3"><li>3</li></a>
-					<a href="notice?notice-page=4"><li>4</li></a>
-					<a href="notice?notice-page=5"><li>5</li></a>
+					<a href="notice?notice-page=${pages[1] - 1 eq 0 ? 1 : pages[1] - 1 }"><li><i class="fas fa-arrow-circle-left"></i></li></a>
+					
+					<c:forEach var="i" begin="${pages[1] }" end="${pages[2] }">
+						<a href="notice?notice-page=${i }"><li>${i }</li></a>
+					</c:forEach>
+					
+					<a href="notice?notice-page=${pages[2] eq pages[0] ? pages[2] : pages[2] + 1 }"><li><i class="fas fa-arrow-circle-right"></i></li></a>
 				</ul>
             </div>
         </main>

@@ -9,7 +9,7 @@ import com.kakao.web.notice.model.dto.NoticeDto;
 
 public class NoticeServiceImpl implements NoticeService{
 	private NoticeDao noticeDao;
-	private int totalPage;
+	private int noticeTotalCount;
 	
 	public NoticeServiceImpl() {
 		noticeDao = new NoticeDaoImpl();
@@ -18,7 +18,7 @@ public class NoticeServiceImpl implements NoticeService{
 	@Override
 	public List<NoticeDto> getNoticeListAll() {
 		List<NoticeDto> noticeListAll = noticeDao.getNoticeAll();
-		totalPage = noticeListAll.size();
+		noticeTotalCount = noticeListAll.size();
 		
 		return noticeListAll;
 	}
@@ -31,14 +31,42 @@ public class NoticeServiceImpl implements NoticeService{
 		
 		int page = Integer.parseInt(pageNum);
 		
-		int startIndex = page - 1 * 20;
+		int startIndex = (page - 1) * 20;
 		int endIndex = page * 20;
 		
-		for(int i = startIndex; i < endIndex; i++) {
+		for(int i = startIndex; i < endIndex && i < noticeTotalCount; i++) {
 			noticeList.add(noticeListAll.get(i));
 		}
 		
 		return noticeList;
 	}
 	
+	@Override
+	public int[] getNoticePages(String pageNum) {
+		int page = Integer.parseInt(pageNum);
+		
+		int totalPage = noticeTotalCount%20 == 0 ? noticeTotalCount/20 : noticeTotalCount/20 + 1;
+		int startPage = page%5 == 0 ? page - 4 : page - (page%5) + 1;
+		int endPage = startPage + 4 <= totalPage ? startPage + 4 : totalPage;
+		
+		int[] pages = {totalPage, startPage, endPage};
+		
+		return pages;
+	}
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

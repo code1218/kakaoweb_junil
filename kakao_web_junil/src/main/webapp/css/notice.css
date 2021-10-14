@@ -62,6 +62,9 @@ main a {
 
 .notice_footer {
 	margin: 30px 0px 0px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .notice_footer ul{

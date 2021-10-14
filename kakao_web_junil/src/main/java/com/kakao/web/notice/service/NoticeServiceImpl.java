@@ -54,6 +54,10 @@ public class NoticeServiceImpl implements NoticeService{
 		return pages;
 	}
 	
+	@Override
+	public int insertNotice(NoticeDto noticeDto) {
+		return noticeDao.insertNotice(noticeDto);
+	}
 }
 
 

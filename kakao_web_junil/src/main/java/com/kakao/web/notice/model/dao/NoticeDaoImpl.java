@@ -52,6 +52,12 @@ public class NoticeDaoImpl implements NoticeDao{
 		
 		return noticeAll;
 	}
+	
+	@Override
+	public int insertNotice(NoticeDto noticeDto) {
+			
+		return 0;
+	}
 }
 
 

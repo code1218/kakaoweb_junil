@@ -24,18 +24,18 @@
                 <form action="notice-insert" method="post">
                     <ul class="ni_title_ul">
                         <li class="ni_title_li">제목</li>
-                        <li><input type="text" name="notice_title"></li>
+                        <li><input type="text" class="notice_title" name="notice_title"></li>
                     </ul>
                     <ul class="ni_info_ul">
                         <li>작성자</li>
-                        <input type="hidden" name="notice_writer" value="${login_user.name }">
+                        <input type="hidden" class="notice_writer" name="notice_writer" value="${login_user.name }">
                         <li>${login_user.name }</li>
                         <li>작성일</li>
                         <li><fmt:formatDate value="${now }" pattern="yyyy-MM-dd"/> </li>
                     </ul>
                     <ul class="ni_content_ul">
                         <li>
-                            <textarea name="notice_content"></textarea>
+                            <textarea class="notice_content" name="notice_content"></textarea>
                         </li>
                     </ul>
 

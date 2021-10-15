@@ -42,6 +42,10 @@
                 
             </div>
             <div class="notice_footer">
+            	<div class="notice_insert_div">
+            		<button type="button" class="notice_insert_button">글쓰기</button>
+            	</div>
+            	
 				<ul>
 					<a href="notice?notice-page=${pages[1] - 1 eq 0 ? 1 : pages[1] - 1 }"><li><i class="fas fa-arrow-circle-left"></i></li></a>
 					

@@ -45,6 +45,7 @@ public class NoticeInsert extends HttpServlet {
 		int result = noticeService.insertNotice(noticeDto);
 		if(result == 0) {
 			System.out.println("공지사항 작성 오류!");
+			request.getRequestDispatcher("/WEB-INF/views/notice_insert.jsp").forward(request, response);
 		}else {
 			System.out.println("공지사항 작성 완료!");
 			response.sendRedirect("notice");

@@ -122,7 +122,7 @@ public class NoticeDaoImpl implements NoticeDao{
 			pstmt.executeUpdate();
 			
 			sql = "select nm.notice_code, nm.notice_title, nd.notice_content, nm.notice_writer, nm.notice_date, nm.notice_count, "
-					+ "min(nn.notice_code), nn.notice_title, max(np.notice_code), np.notice_title from "
+					+ "min(nn.notice_code), min(nn.notice_title), max(np.notice_code), max(np.notice_title) from "
 					+ "notice_mst nm left outer join notice_dtl nd on(nd.notice_code = nm.notice_code) "
 					+ "left outer join (select notice_code, notice_title from notice_mst) nn on(nn.notice_code > nm.notice_code) "
 					+ "left outer join (select notice_code, notice_title from notice_mst) np on(np.notice_code < nm.notice_code) "

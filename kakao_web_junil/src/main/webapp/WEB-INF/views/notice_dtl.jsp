@@ -17,6 +17,8 @@
         <jsp:include page="include/index_include/index_header.jsp"></jsp:include>
         <main>
             <div class="notice_dtl_main">
+            	<input type="hidden" id="notice_code" name="notice_code" value="${notice.notice_code }">
+            	
                 <ul class="nd_header_ul">
                     <li>${notice.notice_title }</li>
                 </ul>

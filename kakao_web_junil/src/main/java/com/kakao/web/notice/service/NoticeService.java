@@ -11,4 +11,5 @@ public interface NoticeService {
 	public int insertNotice(NoticeDto noticeDto);
 	public NoticeDto getNotice(String code);
 	public int updateNotice(NoticeDto noticeDto);
+	public int deleteNotice(String code);
 }

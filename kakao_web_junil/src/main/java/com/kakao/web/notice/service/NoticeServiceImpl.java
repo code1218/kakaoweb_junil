@@ -84,6 +84,19 @@ public class NoticeServiceImpl implements NoticeService{
 		return result;
 	}
 	
+	@Override
+	public int deleteNotice(String code) {
+		int notice_code = Integer.parseInt(code);
+		int result = noticeDao.deleteNotice(notice_code);
+		if(result == 2) {
+			System.out.println(notice_code + "번 notice 삭제 완료");
+			result = 1;
+		}else {
+			System.out.println(notice_code + "번 notice 삭제 오류");
+			result = 0;
+		}
+		return result;
+	}
 }
 
 

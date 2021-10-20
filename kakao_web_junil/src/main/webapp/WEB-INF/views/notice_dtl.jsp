@@ -39,8 +39,14 @@
             <div class="notice_dtl_footer">
                 <div class="nd_footer_buttons">
                     <button type="button" class="notice_list_button">목록</button>
-                    <button type="button" class="notice_update_button">수정</button>
-                    <button type="button" class="notice_delete_button">삭제</button>
+                    
+                    <c:set var="admin_id" value="admin"></c:set>
+	            	<c:set var="admin_user" value="${login_user.id }"></c:set>
+	            	
+	           		<c:if test="${admin_id eq admin_user }">
+                    	<button type="button" class="notice_update_button">수정</button>
+                    	<button type="button" class="notice_delete_button">삭제</button>
+                    </c:if>
                 </div>
                 <div class="nd_footer_pre_next">
                 	<ul class="nd_footer_next">

@@ -199,6 +199,39 @@ public class NoticeDaoImpl implements NoticeDao{
 		
 		return result;
 	}
+	
+	@Override
+	public int deleteNotice(int notice_code) {
+		Connection con = null;
+		Connection con2 = null;
+		PreparedStatement pstmt = null;
+		PreparedStatement pstmt2 = null;
+		String sql = null;
+		int result = 0;
+		
+		try {
+			con = pool.getConnection();
+			con2 = pool.getConnection();
+			
+			sql = "delete from notice_mst where notice_code = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, notice_code);
+			result = pstmt.executeUpdate();
+			
+			sql = "delete from notice_dtl where notice_code = ?";
+			pstmt2 = con.prepareStatement(sql);
+			pstmt2.setInt(1, notice_code);
+			result += pstmt2.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con, pstmt);
+			pool.freeConnection(con2, pstmt2);
+		}
+		
+		return result;
+	}
 }
 
 

@@ -1,0 +1,39 @@
+회원정보 수정 버튼이 onclick일때
+1. 모든 input에 값이 있는 없는지 확인. value.length == 0		-	js
+	>입력된 값이 없으면, 수정할 내용이 없습니다. alert() 호출
+2. 비밀번호가 입력이 되어 있는지 확인. -> 비밀번호 수정 진행	-	js
+	>js에서 비밀번호 확인 정규식 함수를 실행(id, password)
+	>비밀번호 확인
+3. 전화번호가 입력이 되어 있는지 확인. -> 전화번호 수정 진행	-	js
+	-> 인증요청 버튼 클릭
+	-> phonenuber_list_mst 등록이 되어 있는 전화번호만 수정 가능	db에서 확인
+
+4. PhoneNumberCheck 서블릿
+	>doGet() user_name, user_phone 파라미터 받음
+	>인증 성공, 실패 메세지 출력
+	>회원가입 형식 사용
+
+5. 인증 성공일 때 또는 연락처가 비어있을 때만 submit가능
+
+6. mypage(맵핑주소) Mypage(서블릿 클래스명)
+	>doGet() mypage.jsp 포워드, doPost() submit처리
+	>db에 update처리
+	>1. 비밀번호가 비어있고 전화번호가 인증된 상태
+	>2. 비밀번호가 입력이 되어있고 전화번호가 비어있는 상태
+	>3. 둘다 입력이되어서 넘어온 상태
+	>db에 1,2,3 상태에 따라서 update해야할 컬럼이 달라져야함.
+	>input hidden에다가 기존 정보 origin정보를 담고있어야함.
+	>서비스에서 비밀번호가 비어있으면 기존의 비밀번호가 update문에 그대로 들어간다.
+	>전화번호가 비어 있으면 기존의 전화번호가 그대로 들어간다.
+	>update 완료.
+	>session에 업데이트된 정보가 저장되어야함.
+	>mypage로 redirect
+
+
+
+get, post
+
+put method사용 권장
+ajax 비동기처리
+ajax spring에서 사용할 예정
+

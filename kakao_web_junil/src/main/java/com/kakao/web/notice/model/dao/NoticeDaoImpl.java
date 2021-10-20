@@ -165,7 +165,49 @@ public class NoticeDaoImpl implements NoticeDao{
 		
 		return noticeDto;
 	}
+	
+	@Override
+	public int updateNotice(NoticeDto noticeDto) {
+		Connection con = null;
+		Connection con2 = null;
+		PreparedStatement pstmt = null;
+		PreparedStatement pstmt2 = null;
+		String sql = null;
+		int result = 0;
+		
+		try {
+			con = pool.getConnection();
+			con2 = pool.getConnection();
+			sql = "update notice_mst set notice_title = ? where notice_code = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, noticeDto.getNotice_title());
+			pstmt.setInt(2, noticeDto.getNotice_code());
+			result = pstmt.executeUpdate();
+			
+			sql = "update notice_dtl set notice_content = ? where notice_code = ?";
+			pstmt2 = con2.prepareStatement(sql);
+			pstmt2.setString(1, noticeDto.getNotice_content());
+			pstmt2.setInt(2, noticeDto.getNotice_code());
+			result += pstmt2.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con, pstmt);
+			pool.freeConnection(con2, pstmt2);
+		}
+		
+		return result;
+	}
 }
+
+
+
+
+
+
+
+
 
 
 

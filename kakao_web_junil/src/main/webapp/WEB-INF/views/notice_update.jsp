@@ -20,25 +20,26 @@
             </div>
 
             <div class="notice_insert_main">
-                <form action="notice-insert" method="post">
+                <form action="notice-update" method="post">
+                	<input type="hidden" name="notice_code" value="${notice.notice_code }">
                     <ul class="ni_title_ul">
                         <li class="ni_title_li">제목</li>
-                        <li><input type="text" class="notice_title" name="notice_title"></li>
+                        <li><input type="text" class="notice_title" name="notice_title" value="${notice.notice_title }"></li>
                     </ul>
                     <ul class="ni_info_ul">
                         <li>작성자</li>
                         <input type="hidden" class="notice_writer" name="notice_writer" value="${login_user.name }">
                         <li>${login_user.name }</li>
                         <li>작성일</li>
-                        <li></li>
+                        <li>${notice.notice_date }</li>
                     </ul>
                     <ul class="ni_content_ul">
                         <li>
-                            <textarea class="notice_content" name="notice_content"></textarea>
+                            <textarea class="notice_content" name="notice_content">${notice.notice_content }</textarea>
                         </li>
                     </ul>
 
-                    <button type="button" class="notice_submit">작성완료</button>
+                    <button type="button" class="notice_submit">수정완료</button>
                     <button type="reset">다시쓰기</button>
                 </form>
             </div>
@@ -48,7 +49,7 @@
         </footer>
     </div>
     <script src="https://kit.fontawesome.com/c3df4d7d1c.js" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="js/notice_insert.js"></script>
+    <script type="text/javascript" src="js/notice_update.js"></script>
 </body>
 </html>
 

@@ -10,4 +10,5 @@ public interface NoticeService {
 	public int[] getNoticePages(String pageNum);
 	public int insertNotice(NoticeDto noticeDto);
 	public NoticeDto getNotice(String code);
+	public int updateNotice(NoticeDto noticeDto);
 }

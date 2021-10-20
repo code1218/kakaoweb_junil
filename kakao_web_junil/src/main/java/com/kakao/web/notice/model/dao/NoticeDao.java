@@ -8,4 +8,5 @@ public interface NoticeDao {
 	public List<NoticeDto> getNoticeAll();
 	public int insertNotice(NoticeDto noticeDto);
 	public NoticeDto getNotice(int notice_code);
+	public int updateNotice(NoticeDto noticeDto);
 }

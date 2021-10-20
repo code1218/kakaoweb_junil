@@ -71,6 +71,18 @@ public class NoticeServiceImpl implements NoticeService{
 		return noticeDto;
 	}
 	
+	@Override
+	public int updateNotice(NoticeDto noticeDto) {
+		int result = noticeDao.updateNotice(noticeDto);
+		if(result == 2) {
+			System.out.println("정상적으로 notice가 수정되었습니다.");
+			result = 1;
+		}else {
+			System.out.println("notice 수정 오류");
+			result = 0;
+		}
+		return result;
+	}
 	
 }
 

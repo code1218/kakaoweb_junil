@@ -63,5 +63,6 @@
         </footer>
     </div>
     <script src="https://kit.fontawesome.com/c3df4d7d1c.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/notice_dtl.js"></script>
 </body>
 </html>

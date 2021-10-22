@@ -15,7 +15,7 @@
     <div class="container">
         <jsp:include page="include/index_include/index_header.jsp"></jsp:include>
         <main>
-
+        
         </main>
         <footer>
 

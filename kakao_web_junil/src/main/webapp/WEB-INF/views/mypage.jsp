@@ -52,7 +52,7 @@
 	                    	<input type="hidden" id="phone_flag" name="phone_flag" value="2">
 	                        <input type="tel" class="item_ip" name="update_phone" placeholder="전화번호 입력">
 	                        <div class="util_tf">
-	                            <button class="button_round">인증요청</button>
+	                            <button type="button" class="button_round">인증요청</button>
 	                        </div>
 	                    </div>
 	                    <div class="item_msg">

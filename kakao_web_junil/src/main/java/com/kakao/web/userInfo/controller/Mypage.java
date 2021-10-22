@@ -51,7 +51,6 @@ public class Mypage extends HttpServlet {
 			session.setAttribute("login_user", login_user);
 		}
 		response.sendRedirect("mypage");
-		
 	}
 
 }

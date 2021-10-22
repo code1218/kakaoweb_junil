@@ -9,13 +9,17 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.kakao.web.index.model.dto.User;
+import com.kakao.web.userInfo.model.dto.UpdateUserDto;
+import com.kakao.web.userInfo.service.UserInfoService;
+import com.kakao.web.userInfo.service.UserInfoServiceImpl;
 
 @WebServlet("/mypage")
 public class Mypage extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+    private UserInfoService userInfoService = null;
+	
     public Mypage() {
-    	
+    	userInfoService = new UserInfoServiceImpl();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -29,7 +33,28 @@ public class Mypage extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		UpdateUserDto updateUserDto = new UpdateUserDto();
+		updateUserDto.setEmail(request.getParameter("user_email"));
+		updateUserDto.setPassword(request.getParameter("user_password"));
+		updateUserDto.setPassword(request.getParameter("update_password"));
+		updateUserDto.setName(request.getParameter("user_name"));
+		updateUserDto.setPhone(request.getParameter("user_phone"));
+		updateUserDto.setPhone(request.getParameter("update_phone"));
+
 		
+		userInfoService.updateUserInfo(null);
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+

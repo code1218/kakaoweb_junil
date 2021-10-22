@@ -31,8 +31,6 @@ public class SignIn extends HttpServlet {
 		}else {
 			response.sendRedirect("index");
 		}
-		
-		
 	}
 	
 	@Override

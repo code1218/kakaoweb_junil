@@ -2,23 +2,33 @@ const item_ips = document.querySelectorAll('.item_ip');
 const user_email = document.querySelector('#user_email');
 const user_name = document.querySelector('#user_name');
 const msg1 = document.querySelectorAll('.msg1');
-
+const password_flag = document.querySelector('#password_flag');
+const repassword_flag = document.querySelector('#repassword_flag');
 
 item_ips[0].onblur = () => {
     if(item_ips[0].value.length != 0){
         checkPassword(user_email.value, item_ips[0].value);
-    }
+    }else {
+		password_flag.value = 2;
+		msg1[0].style.display = 'none';
+	}
 }
 
 item_ips[1].onblur = () => {
-    if(item_ips[0].value.length != 0 && item_ips[0].value != item_ips[1].value){
+    if(item_ips[1].value.length != 0 && item_ips[0].value != item_ips[1].value){
+       	repassword_flag.value = 0;
         msg1[1].style.display = 'block';
+    }else if(item_ips[1].value.length != 0 && item_ips[0].value == item_ips[1].value){
+		repassword_flag.value = 1;
+        msg1[1].style.display = 'none';
     }else{
+		repassword_flag.value = 2;
         msg1[1].style.display = 'none';
     }
 }
 
 function checkPassword(id,password){
+	password_flag.value = 0;
 	
 	while(msg1[0].hasChildNodes()){
 		msg1[0].removeChild(msg1[0].firstChild);
@@ -56,7 +66,21 @@ function checkPassword(id,password){
         return false;
     }
     
+    password_flag.value = 1;
     msg1[0].style.display = 'none';
     return true;
-    
 }
+
+const btn_g = document.querySelector('.btn_g');
+btn_g.onclick = () => {
+	if((password_flag.value == 1 && repassword_flag.value == 1) || (password_flag.value == 2 && repassword_flag.value == 2)){
+		const form = document.querySelector('form');
+		form.submit();
+	}else{
+		alert('회원 수정 내용을 확인해 주세요.');
+	}
+	
+}
+
+
+

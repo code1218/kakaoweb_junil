@@ -73,8 +73,12 @@ function checkPassword(id,password){
 
 const btn_g = document.querySelector('.btn_g');
 btn_g.onclick = () => {
-	if((password_flag.value == 1 && repassword_flag.value == 1) || (password_flag.value == 2 && repassword_flag.value == 2)){
-		const form = document.querySelector('form');
+	const form = document.querySelector('form');
+	if(password_flag.value == 1 && repassword_flag.value == 1){
+		form.submit();
+	}else if(password_flag.value == 2 && repassword_flag.value == 2){
+		const user_password = document.querySelector('#user_password');
+		item_ips[0].value = user_password.value;
 		form.submit();
 	}else{
 		alert('회원 수정 내용을 확인해 주세요.');

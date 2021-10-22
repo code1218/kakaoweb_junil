@@ -27,7 +27,7 @@
 	                    </div>
 	                    <div class="item_tf">
 	                    	<input type="hidden" id="password_flag" name="password_flag" value="2">
-	                    	<input type="hidden" name="user_password" value="${login_user.password }">
+	                    	<input type="hidden" id="user_password" name="user_password" value="${login_user.password }">
 	                        <input type="password" class="item_ip" name="update_password"  placeholder="비밀번호 입력">
 	                    </div>
 	                    <div class="item_msg">
@@ -49,6 +49,7 @@
 	                        <label class="item_lb" for="">${login_user.phone }</label>
 	                    </div>
 	                    <div class="item_tf">
+	                    	<input type="hidden" id="phone_flag" name="phone_flag" value="2">
 	                        <input type="tel" class="item_ip" name="update_phone" placeholder="전화번호 입력">
 	                        <div class="util_tf">
 	                            <button class="button_round">인증요청</button>

@@ -71,11 +71,15 @@ function checkPassword(id,password){
     return true;
 }
 
+
+
+
+/*
 const button_round = document.querySelector('.button_round');
 button_round.onclick = () => {
 	location.href = 'phoneNumberCheck?name=김준일&phone=01099881916';
 }
-
+*/
 const btn_g = document.querySelector('.btn_g');
 btn_g.onclick = () => {
 	const form = document.querySelector('form');

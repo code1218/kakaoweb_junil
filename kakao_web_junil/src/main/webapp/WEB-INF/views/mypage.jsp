@@ -42,11 +42,11 @@
 	                        <span class="msg1">비밀번호가 일치하지 않습니다.</span>
 	                    </div>
 	                    <div class="item_tf">
-	                        <input type="hidden" name="user_name" value="${login_user.name }">
+	                        <input type="hidden" id="user_name" name="user_name" value="${login_user.name }">
 	                        <label class="item_lb" for="">${login_user.name }</label>
 	                    </div>
 	                    <div class="item_tf">
-	                        <input type="hidden" name="user_phone" value="${login_user.phone }">
+	                        <input type="hidden" id="user_phone" name="user_phone" value="${login_user.phone }">
 	                        <label class="item_lb" for="">${login_user.phone }</label>
 	                    </div>
 	                    <div class="item_tf">

@@ -27,6 +27,8 @@ public class AjaxTest extends HttpServlet {
 		JsonElement element = parser.parse(dataOrigin);
 		JsonObject jobj = element.getAsJsonObject();
 		
+		String user_name = jobj.get("user_name").getAsString();
+		
 		System.out.println(jobj.get("user_name").getAsString());
 		System.out.println(jobj.get("user_phone").getAsString());
 		

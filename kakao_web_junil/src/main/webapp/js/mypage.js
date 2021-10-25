@@ -72,14 +72,46 @@ function checkPassword(id,password){
 }
 
 
-
-
-/*
 const button_round = document.querySelector('.button_round');
 button_round.onclick = () => {
-	location.href = 'phoneNumberCheck?name=김준일&phone=01099881916';
+	if(item_ips[2].value.length == 0){
+		item_ips[2].value = $("#user_phone").val();
+	}
+	
+	let phoneInfo = {
+		user_name:$("#user_name").val(),
+		user_phone:item_ips[2].value
+	};
+	
+	$.ajax({
+		type:"get",
+		url:"phone-number-check",
+		data: {
+			phoneInfo:JSON.stringify(phoneInfo)
+		},
+		dataType: "text",
+		success: function(data){
+			const msg2 = document.querySelector('.msg2');
+			const msg3 = document.querySelector('.msg3');
+			msg1[2].style.display = 'none';
+			msg2.style.display = 'none';
+			msg3.style.display = 'none';
+			
+			if(data == 0){
+				msg2.style.display = 'block';
+			}else if(data == 2){
+				msg1[2].style.display = 'block';
+			}else if(data == 1){
+				msg3.style.display = 'block';
+			}
+		},
+		error: function(){
+			
+		}
+	})
 }
-*/
+
+
 const btn_g = document.querySelector('.btn_g');
 btn_g.onclick = () => {
 	const form = document.querySelector('form');
